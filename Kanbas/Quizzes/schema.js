@@ -11,6 +11,8 @@ const QuizSchema = new mongoose.Schema({
                                                default: "Graded Quiz"
                                            },
                                            points: { type: Number, required: true },
+                                           questionCount: { type: Number, default: 0 },
+                                           description: { type: String},
                                            assignmentGroup: {
                                                type: String,
                                                enum: ["Quizzes", "Exams", "Assignments", "Project"],
@@ -28,13 +30,13 @@ const QuizSchema = new mongoose.Schema({
                                            },
                                            multipleAttempts: {
                                                type: Boolean,
-                                               required: false, // Make it optional
+                                               required: false,
                                                default: false
                                            },
                                            showCorrectAnswers: {
                                                type: String,
                                                enum: ["Immediately", "After Due Date", "Never"],
-                                               required: false, // Make it optional
+                                               required: false,
                                            },
                                            accessCode: {
                                                type: String,
@@ -42,22 +44,23 @@ const QuizSchema = new mongoose.Schema({
                                            },
                                            oneQuestionAtATime: {
                                                type: Boolean,
-                                               required: false, // Make it optional
+                                               required: false,
                                                default: false
                                            },
                                            webcamRequired: {
                                                type: Boolean,
-                                               required: false, // Make it optional
+                                               required: false,
                                                default: false
                                            },
                                            lockQuestionsAfterAnswering: {
                                                type: Boolean,
-                                               required: false, // Make it optional
+                                               required: false,
                                                default: false
                                            },
                                            dueDate: { type: Date, required: true },
                                            availableFrom: { type: Date, required: false },
                                            until: { type: Date, required: false },
+                                           isPublished: { type: Boolean, required: false, default: false },
 
                                        }, {
                                            timestamps: true,
